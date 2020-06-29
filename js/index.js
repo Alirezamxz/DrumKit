@@ -1,1 +1,3 @@
-console.log("ok")
+window.addEventListener('keydown', e => {
+    
+})
