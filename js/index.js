@@ -1,24 +1,24 @@
 function playSound(e) {
-    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
 
-    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
 
-    if (!audio) return; // if key is not set for audio stop function
+  if (!audio) return; // if key is not set for audio stop function
 
-    audio.currentTime = 0; // play again from start
+  audio.currentTime = 0; // play again from start
 
-    audio.play();
+  audio.play();
 
-    key.classList.add('playing');
+  key.classList.add("playing");
 }
 
 function removeTransition(e) {
-    if (e.propertyName !== 'transform') return;
-    this.classList.remove('playing');
-};
+  if (e.propertyName !== "transform") return;
+  this.classList.remove("playing");
+}
 
-const keys = document.querySelectorAll('.key');
+const keys = document.querySelectorAll(".key");
 
-keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
 
-window.addEventListener('keydown', playSound);
+window.addEventListener("keydown", playSound);
